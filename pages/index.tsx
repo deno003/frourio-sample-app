@@ -28,8 +28,8 @@ const Home = () => {
         </Head>
 
         <main className={styles.main}>
-          <UIbar />
-          <MainDrawer />
+          <UIbar props={open} />
+          <MainDrawer handleClick={handleDrawerClose} props={open} />
 
           <p className={styles.description}>Minimal-Closet</p>
         </main>

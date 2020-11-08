@@ -9,8 +9,8 @@ import MenuIcon from '@material-ui/icons/Menu'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import styles from '~/styles/Home.module.css'
 
-const UIbar = () => {
-  const [open, setOpen] = React.useState(true)
+const UIbar = (props: any) => {
+  const { open, setOpen } = props
   const handleDrawerOpen = () => {
     setOpen(true)
   }
