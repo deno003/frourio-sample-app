@@ -1,14 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
-}
-
-generator client {
-  provider = "prisma-client-js"
 }
 
 model Task {
   id    Int     @id @default(autoincrement())
   label String
   done  Boolean @default(false)
+}
+
+model Clothes {
+  id       Int    @id @default(autoincrement())
+  name     String
+  category String
+  color    String
+  size     String
 }

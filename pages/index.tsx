@@ -10,14 +10,21 @@ import Layout from '~/components/Layout'
 import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
 import MainDrawer from '~/components/MainDrawer'
+import Button from '@material-ui/core/Button'
+import Link from 'next/link'
 
 const Home = () => {
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = React.useState(false)
+  const [count, setCount] = React.useState(5)
   const handleDrawerOpen = () => {
     setOpen(true)
   }
   const handleDrawerClose = () => {
     setOpen(false)
+  }
+
+  const incrementCount = () => {
+    setCount(count + 1)
   }
 
   return (
@@ -28,10 +35,17 @@ const Home = () => {
         </Head>
 
         <main className={styles.main}>
-          <UIbar />
-          <MainDrawer />
+          <UIbar props={open} />
+          <MainDrawer handleClick={handleDrawerClose.bind(this)} props={open} />
 
           <p className={styles.description}>Minimal-Closet</p>
+          <Button onClick={handleDrawerClose}>test</Button>
+          <Button onClick={incrementCount}>test2</Button>
+          <p>{count}</p>
+
+          <Link href="/registerClothes/registerClothes">
+            <Button>registerClothes</Button>
+          </Link>
         </main>
 
         <footer className={styles.footer}></footer>
