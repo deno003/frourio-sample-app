@@ -1,3 +1,5 @@
+import React from 'react'
+import PropTypes from 'prop-types'
 import Drawer from '@material-ui/core/Drawer'
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
@@ -6,16 +8,10 @@ import List from '@material-ui/core/List'
 import { mainListItems } from '~/components/mainListItems'
 
 const MainDrawer = (props: any) => {
-  const { open, setOpen } = props
-  const handleDrawerOpen = () => {
-    setOpen(true)
-  }
-  const handleDrawerClose = () => {
-    setOpen(false)
-  }
+  const { open, handleDrawerClose } = props
 
   return (
-    <Drawer variant="permanent" open={props.open}>
+    <Drawer variant="permanent" open={open}>
       <div>
         <IconButton onClick={handleDrawerClose}>
           <ChevronLeftIcon />
@@ -25,6 +21,10 @@ const MainDrawer = (props: any) => {
       <List>{mainListItems}</List>
     </Drawer>
   )
+}
+
+MainDrawer.prototype = {
+  handleDrawerClose: PropTypes.func
 }
 
 export default MainDrawer
