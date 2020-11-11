@@ -1,10 +1,10 @@
 import { defineController } from './$relay'
-import { getTasks, createTask } from '$/service/tasks'
+import { registerClothes } from '$/service/clothes'
 
 export default defineController(() => ({
-  get: async () => ({ status: 200, body: await getTasks() }),
+  get: async () => ({ status: 200, body: 'Hello' }),
   post: async ({ body }) => ({
     status: 201,
-    body: await createTask(body.label)
+    body: await registerClothes(body.name, body.category, body.color, body.size)
   })
 }))

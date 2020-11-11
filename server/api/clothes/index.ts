@@ -1,15 +1,11 @@
-import { Task } from '$prisma/client'
+import { Clothes } from '$prisma/client'
 
 export type Methods = {
   get: {
-    query?: {
-      limit?: number
-    }
-
-    resBody: Task[]
+    resBody: string
   }
   post: {
-    reqBody: Pick<Task, 'label'>
-    resBody: Task
+    reqBody: { name: string; category: string; color: string; size: string }
+    resBody: Clothes
   }
 }
