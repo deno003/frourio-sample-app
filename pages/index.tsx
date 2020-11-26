@@ -16,6 +16,8 @@ import Link from 'next/link'
 const Home = () => {
   const [open, setOpen] = React.useState(false)
   const [count, setCount] = React.useState(5)
+
+  const handleDrawerOpenCallBack = useCallback(() => setOpen(true), [open])
   const handleDrawerOpen = () => {
     setOpen(true)
   }
@@ -35,7 +37,10 @@ const Home = () => {
         </Head>
 
         <main className={styles.main}>
-          <UIbar props={open} />
+          <UIbar
+            props={open}
+            handleDrawerOpenCallBack={handleDrawerOpenCallBack}
+          />
           <MainDrawer handleClick={handleDrawerClose.bind(this)} props={open} />
 
           <p className={styles.description}>Minimal-Closet</p>

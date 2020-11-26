@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import styles from '~/styles/Home.module.css'
 
-const UIbar = (props: any) => {
+const UIbar = (props: any, handleDrawerOpenCallBack: any) => {
   const { open, setOpen } = props
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -28,7 +28,7 @@ const UIbar = (props: any) => {
           edge="start"
           color="inherit"
           aria-label="open drawer"
-          onClick={handleDrawerOpen}
+          onClick={handleDrawerOpenCallBack}
           className={clsx(styles.menuButton, open && styles.menuButtonHidden)}
         >
           <MenuIcon />
